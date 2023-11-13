@@ -9,7 +9,7 @@ using AngelosAPI.Dtos;
 
 namespace AngelosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/artists")]
     [ApiController]
     public class ArtistsController : ControllerBase
     {
@@ -92,7 +92,7 @@ namespace AngelosAPI.Controllers
             _dbContext.Artists.Add(artist);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetArtistDto", new { id = artist.Id }, artist);
+            return CreatedAtAction(nameof(GetArtist), new { id = artist.Id }, artist);
         }
 
         // DELETE: api/Artists/5
