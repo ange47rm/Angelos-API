@@ -1,4 +1,7 @@
 
+using AngelosAPI.Dtos;
+using Microsoft.EntityFrameworkCore;
+
 namespace AngelosAPI
 {
     public class Program
@@ -13,6 +16,7 @@ namespace AngelosAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<MusicDbContext>(opt => opt.UseInMemoryDatabase("MusicDb"));
 
             var app = builder.Build();
 
